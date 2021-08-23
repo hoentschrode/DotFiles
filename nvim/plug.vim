@@ -5,6 +5,7 @@ endif
 call plug#begin()
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
 
 if has("nvim")
     Plug 'hoob3rt/lualine.nvim'
