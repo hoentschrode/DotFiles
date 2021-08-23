@@ -3,7 +3,7 @@ if !exists('g:lspconfig')
 endif
 
 lua << EOF
-vim.lsp.set_log_level("debug")
+--vim.lsp.set_log_level("debug")
 EOF
 
 lua <<EOF
@@ -71,7 +71,18 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp.pyright.setup{
-    on_attach = on_attach
+    on_attach = on_attach,
+    filetypes = {"python"}
+}
+
+nvim_lsp.clangd.setup{
+    on_attach = on_attach,
+    filetypes = {"c", "cpp"},
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--suggest-missing-includes",
+    }
 }
 
 nvim_lsp.diagnosticls.setup{
