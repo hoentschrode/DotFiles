@@ -5,7 +5,6 @@ endif
 call plug#begin()
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-vinegar'
 
 if has("nvim")
     Plug 'hoob3rt/lualine.nvim'
@@ -13,5 +12,6 @@ if has("nvim")
     Plug 'nvim-lua/completion-nvim'
     Plug 'windwp/nvim-autopairs'
     Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'kyazdani42/nvim-tree.lua'
 endif
 call plug#end()
