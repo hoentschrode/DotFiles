@@ -70,6 +70,9 @@ local on_attach = function(client, bufnr)
 
 end
 
+-- Configure language servers (https://github.com/neovim/nvim-lspconfig)
+
+-- For config details refer to: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#pyright
 nvim_lsp.pyright.setup{
     on_attach = on_attach,
     filetypes = {"python"}
@@ -85,18 +88,45 @@ nvim_lsp.clangd.setup{
     }
 }
 
+-- Refer to for details: https://github.com/iamcco/diagnostic-languageserver
 nvim_lsp.diagnosticls.setup{
     on_attach = on_attach,
     filetypes = {"python", "css", "markdown"},
     init_options = {
-        linters = {},
-        filetypes = {},
+        linters = {
+            flake8 = {
+                command = 'flake8',
+                debounce = 100,
+                args = {"--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s", "-"},
+                offsetLine = 0,
+                offsetColumn = 0,
+                sourceName = "flake8",
+                formatLines = 1,
+                formatPattern = {
+                    "(\\d+),(\\d+),([A-Z]),(.*)(\\r|\\n)*$",
+                    {
+                        line = 1,
+                        column = 2,
+                        security = 3,
+                        message = 4
+                    }
+                },
+                securities = {
+                    ["W"] = "warning",
+                    ["E"] = "error",
+                    ["F"] = "error",
+                    ["C"] = "error",
+                    ["N"] = "error"
+                }
+            }
+        },
+        filetypes = {
+            python = "flake8"
+        },
         formatters = {
             black = {
                 command = 'black',
-                args = {'%filename'},
-                doesWriteToFile = true,
-                debounce = 100
+                args = {'--quiet', "-"}
             },
             prettier = {
                 command = 'prettier',
