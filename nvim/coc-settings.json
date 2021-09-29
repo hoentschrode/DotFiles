@@ -1,0 +1,23 @@
+{
+    "coc.preferences.rootPatterns": [
+        ".git",
+        "Pipfile",
+        "README.md"
+    ],
+    "coc.preferences.formatOnSaveFiletypes": [
+        "python",
+        "json",
+        "markdown",
+        "yaml"
+    ],
+    "python.linting.lintOnSave": true,
+    "pyright.enable": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/usr/local/bin/black",
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "/usr/local/bin/flake8",
+    "python.linting.banditEnabled": true,
+    "python.linting.banditPath": "/usr/local/bin/bandit",
+    "python.linting.pydocstyleEnabled": true,
+    "python.linting.pydocstylePath": "/usr/local/bin/pydocstyle"
+}

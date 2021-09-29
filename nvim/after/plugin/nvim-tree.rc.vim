@@ -1,6 +1,17 @@
+lua << EOF
+require'nvim-tree'.setup {
+    disable_netrw = true,
+    hijack_netre = true,
+    auto_close = true,
+    lsp_diagnostics = true,
+    view = {
+        width = 30,
+    }
+}
+EOF
+
 nnoremap <C-n> :NvimTreeToggle<CR>
 
-let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the signcolumn.
 let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 let g:nvim_tree_icons = {
     \ 'default': '',

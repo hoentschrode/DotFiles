@@ -94,7 +94,8 @@ if exists("&termguicolors") && exists("&winblend")
 	set wildoptions=pum
 	set pumblend=5
 	" ...colorscheme
-    colorscheme onehalflight
+    colorscheme PaperColor
+    set background=light
 endif
 
 " *** Extras
